@@ -1,17 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <matchup-title :teamA="team1" :teamB="team2"></matchup-title>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import MatchupTitle from './components/MatchupTitle.vue';
 
 export default {
-  name: "App",
-  components: {
-    HelloWorld
+  
+  components: {MatchupTitle},
+  data() {
+    return {
+      team1: {
+        name: "Team 1",
+        score: 0
+      },
+      team2: {
+        name: "Team 2",
+        score: 0
+      }
+    }
   }
 };
 </script>
