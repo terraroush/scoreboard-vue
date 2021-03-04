@@ -1,15 +1,19 @@
 <template>
   <div id="app">
     <matchup-title :teamA="team1" :teamB="team2"></matchup-title>
+    <div>
+      <score-card :score="team1.score" @addPoint="updateTeamScore(team1, 1)" @subPoint="updateTeamScore(team1, -1)"></score-card>
+      <score-card :score="team2.score" @addPoint="updateTeamScore(team2, 1)" @subPoint="updateTeamScore(team2, -1)"></score-card>
+    </div>
   </div>
 </template>
 
 <script>
 import MatchupTitle from './components/MatchupTitle.vue';
+import ScoreCard from './components/ScoreCard.vue';
 
 export default {
-  
-  components: {MatchupTitle},
+  components: {MatchupTitle, ScoreCard},
   data() {
     return {
       team1: {
@@ -21,6 +25,15 @@ export default {
         score: 0
       }
     }
+  },
+  methods: {
+   updateTeamScore(team, points) {
+     const updated = team.score + points;
+
+     if (updated >= 0) {
+       team.score = updated;
+     }
+   }
   }
 };
 </script>
