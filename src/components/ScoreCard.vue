@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1>{{ score }}</h1>
-    <button @click="subPoint">-</button>
-    <button @click="addPoint">+</button>
+    <h1 class="score">{{ score }}</h1>
+    <button class="sub-button" @click="subPoint">-</button>
+    <button class="add-button" @click="addPoint">+</button>
   </div>
 </template>
 
@@ -16,8 +16,8 @@ export default {
     },
     addPoint() {
       this.$emit("addPoint", this.score);
-    }
-  }
+    },
+  },
 };
 </script>
 
